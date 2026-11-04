@@ -31,19 +31,19 @@ Quiz Mentor will actually feel like to use.
    from the spec.
 
 ## Files added since trial 1
-
-ai-model/
+```text
+ai-models/
 ├── app/
-│ ├── db/
-│ │ └── database.py # unchanged from trial 1
-│ ├── core/
-│ │ └── memory_store.py # unchanged from trial 1
-│ └── data/
-│ └── question_bank.py # NEW — 30 hardcoded beginner MCQs, 5 per language
+│   ├── core/
+│   │   └── memory_store.py # unchanged from trial 1
+│   ├── data/
+│   │   └── question_bank.py # NEW — 30 hardcoded beginner MCQs, 5 per language
+│   └── db/
+│       └── database.py # unchanged from trial 1
 ├── data/
-│ └── quiz_engine.db # created on run
+│   └── quiz_engine.db # created on run (not committed)
 └── quiz_cli.py # NEW — interactive question-by-question loop
-
+```
 
 `question_bank.py` is a stand-in for AI-generated questions. Each entry
 is `{id, language, difficulty, question, options, correct_index}` — the
