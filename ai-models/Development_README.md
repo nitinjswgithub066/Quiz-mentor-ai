@@ -44,19 +44,19 @@ This logic lives in `app/core/memory_store.py` and has been tested and
 confirmed working (see "What's been tested" below).
 
 ## Folder structure (current)
-ai-model/
+ai-models/
 ├── app/
-│ ├── db/
-│ │ └── database.py # SQLite schema + connection (stdlib only, no ORM yet)
-│ ├── core/
-│ │ └── memory_store.py # the adaptive decision + memory-update logic
-│ └── data/
-│ └── question_bank.py # hardcoded MCQ bank (stand-in for AI-generated questions)
+│   ├── core/
+│   │   └── memory_store.py       # adaptive decision + memory-update logic
+│   ├── data/
+│   │   └── question_bank.py      # hardcoded MCQ bank (stand-in for AI-generated questions)
+│   └── db/
+│       └── database.py            # SQLite schema + connection (stdlib only, no ORM yet)
 ├── data/
-│ └── quiz_engine.db # local SQLite DB, created on run
-├── trial_run.py # trial 1: simulated user, simulated answers
-├── quiz_cli.py # trial 2: real questions, real typed answers
-└── README.md # this file
+│   └── quiz_engine.db            # generated locally at runtime (not committed)
+├── quiz_cli.py                   # trial 2: real questions, real typed answers
+├── trial_run.py                  # trial 1: simulated user, simulated answers
+└── Development_README.md         # this file
 
 No external dependencies yet (`sqlite3` and `random` from the standard
 library only) — kept intentionally minimal so the core logic could be
