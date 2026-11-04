@@ -6,10 +6,10 @@ question bank, a mentor that learns what you're weak at and focuses there.
 ## The problem
 
 Most coding quiz sites give everyone the same questions regardless of
-skill. A beginner in Python gets steamrolled by the same quiz an expert
-gets; an expert gets bored repeating basics they already know. Almost
-none of them track your ability *across multiple languages at once* and
-use that to decide what to ask you next.
+skill. A beginner in Python gets steamrolled by the same quiz an expert gets; an
+expert gets bored repeating basics they already know. Almost none of them track
+your ability *across multiple languages at once* and use that to decide what to
+ask you next.
 
 ## What Quiz Mentor does
 
@@ -37,27 +37,31 @@ use that to decide what to ask you next.
   a time.
 
 ## How it works (high level)
-```text
-Frontend ──────────────▶ Backend ──────────────▶ AI-Engine
-▲ │ │
-│ │ stores results │ generates next
-│ ▼ │ question using:
-│ User/Attempt DB ┌─────────┴─────────┐
-│ │ Reference DB │
-│ │ (books/PDFs/links)│
-│ │ + │
-│ │ LLM (question │
-│ │ generation) │
-│ └─────────┬─────────┘
-└────────────────────────────────────────────────────────┘
+
+```mermaid
+flowchart TD
+    U[User] -->|Answers questions| F[Frontend]
+    F -->|Submit answer / request question| B[Backend]
+
+    B -->|Read and write user progress| DB[(User and Attempt DB)]
+    B -->|Send user profile and attempt context| AI[AI Engine]
+
+    AI -->|Read supporting content| REF[(Reference DB<br/>Books, PDFs, links)]
+    AI -->|Generate next question| LLM[LLM]
+    REF --> AI
+    LLM --> AI
+
+    AI -->|Return adaptive question| B
+    B -->|Deliver question and feedback| F
+    F -->|Show next question| U
 ```
 
 The **Backend** owns users, sessions, and auth (Firebase). The
-**AI-Engine** owns deciding what to ask and generating it, using a
-combination of a per-user skill memory and reference material via
-retrieval-augmented generation (RAG) — no model is trained from scratch;
-it's prompting an LLM with the right context each time, which is what
-keeps it able to incorporate new uploaded material immediately.
+**AI-Engine** owns deciding what to ask and generating it, using a combination
+of a per-user skill memory and reference material via retrieval-augmented
+generation (RAG) — no model is trained from scratch; it's prompting an LLM with
+the right context each time, which is what keeps it able to incorporate new
+uploaded material immediately.
 
 ## Project status
 
@@ -76,10 +80,10 @@ main → stable, working releases only
 
 Work starts in a feature branch, merges into `development` once it's
 stable, and only reaches `main` once it's verified working end to end.
-Backend and frontend will get their own feature branches following the
-same pattern as the project grows.
+Backend and frontend will get their own feature branches following the same
+pattern as the project grows.
 
 ## Contributing / getting started
 
-See the README on the `features/ai-models` branch for how the AI-engine
-is structured and how to run its current test scripts.
+See the README on the `features/ai-models` branch for how the AI-engine is
+structured and how to run its current test scripts.
