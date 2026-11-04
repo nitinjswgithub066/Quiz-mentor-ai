@@ -40,16 +40,16 @@ actually be run and verified rather than handed over untested.
 ## Files
 
 ```
-ai-engine/
+ai-models/
 ├── app/
 │   ├── db/
 │   │   └── database.py      # SQLite schema + connection (users, languages, skill_levels, attempts)
 │   └── core/
 │       └── memory_store.py  # the memory model: read/update skill state, decide next question
 ├── data/
-│   └── quiz_engine.db       # created on first run
+│   └── quiz_engine.db       # created on first run (not committed)
 ├── trial_run.py             # simulates 40 trials for one user, prints what the system remembers
-└── README.md                # this file
+└── Development_README.md    # development notes
 ```
 
 `skill_levels` is the memory: one row per (user, language), tracking
