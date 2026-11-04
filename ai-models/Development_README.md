@@ -44,6 +44,7 @@ This logic lives in `app/core/memory_store.py` and has been tested and
 confirmed working (see "What's been tested" below).
 
 ## Folder structure (current)
+```text
 ai-models/
 ├── app/
 │   ├── core/
@@ -57,6 +58,7 @@ ai-models/
 ├── quiz_cli.py                   # trial 2: real questions, real typed answers
 ├── trial_run.py                  # trial 1: simulated user, simulated answers
 └── Development_README.md         # this file
+```
 
 No external dependencies yet (`sqlite3` and `random` from the standard
 library only) — kept intentionally minimal so the core logic could be
