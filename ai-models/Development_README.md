@@ -45,6 +45,7 @@ confirmed working (see "What's been tested" below).
 
 ## Folder structure (current)
 
+```` ``
 ai-model/
 ├── app/
 │ ├── db/
@@ -58,6 +59,7 @@ ai-model/
 ├── trial_run.py # trial 1: simulated user, simulated answers
 ├── quiz_cli.py # trial 2: real questions, real typed answers
 └── README.md # this file
+```` ``
 
 
 No external dependencies yet (`sqlite3` and `random` from the standard
