@@ -37,7 +37,7 @@ use that to decide what to ask you next.
   a time.
 
 ## How it works (high level)
-
+```text
 Frontend ──────────────▶ Backend ──────────────▶ AI-Engine
 ▲ │ │
 │ │ stores results │ generates next
@@ -50,7 +50,7 @@ Frontend ──────────────▶ Backend ─────�
 │ │ generation) │
 │ └─────────┬─────────┘
 └────────────────────────────────────────────────────────┘
-
+```
 
 The **Backend** owns users, sessions, and auth (Firebase). The
 **AI-Engine** owns deciding what to ask and generating it, using a
